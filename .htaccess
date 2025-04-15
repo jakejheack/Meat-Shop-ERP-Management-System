@@ -1,0 +1,17 @@
+
+#turn on url rewriting 
+RewriteEngine on
+
+#remove the need for .php extention 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php
+
+#RewriteRule ^index\.php$ - [L]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule . /index.php [L]
+
+# Disable Directory Browsing
+Options All -Indexes
+

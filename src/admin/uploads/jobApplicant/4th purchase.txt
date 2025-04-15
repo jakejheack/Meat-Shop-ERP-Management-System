@@ -1,0 +1,299 @@
+<!-- 4th PURCHASE --> 
+                                                    <?php if ($setchick) { ?>
+                                                        <div class="row">
+                                                            <div class="col-lg-2"></div>
+                                                            <!-- Record Name -->
+                                                            <div  class="form-group col-lg-2">
+                                                                <a href="#collapsechickName" class="text-dark" data-toggle="collapse" aria-expanded="true">
+                                                                    <label class="form-control" style="font-weight:600;text-transform:capitalize;">Purchase</label>
+                                                                </a>
+                                                            </div>
+
+
+                                                            <!-- In -->
+                                                            <?php if ($setchickin) { ?> 
+                                                                <div class="form-group col-lg-3" id="inst_form">
+                                                                    <a href="#collapsechickIn" class="text-dark" data-toggle="collapse" aria-expanded="true">
+                                                                        <?php if(isset($_GET['view'])) { ?>
+                                                                            <div class="input-group-prepend">
+                                                                                <div class="input-group-text" style="font-weight:600">&nbsp;IN&nbsp;</div>
+                                                                                <input class="form-control" style="font-weight:600;text-transform:capitalize;color:#f46a6a;" value="<?php echo $getROW['chickin'];?>" readonly/>
+                                                                            </div>
+                                                                        <?php } else { ?>
+                                                                            <div class="input-group-prepend">
+                                                                                <div class="input-group-text" style="font-weight:600">&nbsp;IN&nbsp;</div>
+                                                                                <input name="chickin" id="total_amount_chickin" style="font-weight:600;color:#f46a6a;" class="form-control" value="<?php if(isset($_GET['edit'])) echo $getROW['chickin'];?>" autocomplete="off" readonly/>
+                                                                            </div>
+                                                                        <?php } ?> 
+                                                                    </a>
+                                                                </div>
+                                                            <?php } else { ?>
+                                                            <?php } ?> 
+
+                                                            <!-- Out -->
+                                                            <?php if ($setchickout) { ?>
+                                                                <div class="form-group col-lg-3">
+                                                                    <a href="#collapsechickOut" class="text-dark" data-toggle="collapse" aria-expanded="true">
+                                                                        <?php if(isset($_GET['view'])) { ?>
+                                                                            <div class="input-group-prepend">
+                                                                                <div class="input-group-text" style="font-weight:600">OUT</div>
+                                                                                <input class="form-control" style="font-weight:600;text-transform:capitalize;color:#f46a6a;" value="<?php echo $getROW['chickout'];?>" readonly/>
+                                                                            </div>
+                                                                        <?php } else { ?>
+                                                                            <div class="input-group-prepend">
+                                                                                <div class="input-group-text" style="font-weight:600">OUT</div>
+                                                                                <input name="chickout" id="total_amount_chickout" type="text" style="font-weight:600;color:#f46a6a;" class="form-control" value="<?php if(isset($_GET['edit'])) echo $getROW['chickout'];?>" autocomplete="off" readonly/>
+                                                                            </div>
+                                                                        <?php } ?> 
+                                                                    </a>
+                                                                </div>
+                                                            <?php } else { ?>
+                                                            <?php } ?> 
+                                                        </div>
+                                                    <?php } else { ?>
+                                                    <?php } ?> 
+
+                                                    <!--PURCHASE IN -->
+                                                    <div id="collapsechickIn" class="collapse">
+                                                        <div class="container">
+                                                            <div class="table-responsive">
+                                                                <?php if(isset($_GET['view'])) { ?>
+
+                                                                   <table class="table table-striped" id="dynamic_field_chickin" style="width: 100%;text-align:center;">
+
+                                                                       <thead>
+                                                                           <tr>
+                                                                               <th>Purchase</th>
+                                                                               <th>Supplier</th>
+                                                                               <th>&nbsp;Amount In&nbsp;</th>>
+
+                                                                           </tr>
+                                                                       </thead>
+                                                                       <?php
+                                                                       $res = $MySQLiconn->query("SELECT * FROM tbchick1 WHERE tb1_id=".$_GET['view']);
+                                                                       while($row=$res->fetch_array()){                                       
+                                                                           ?>
+                                                                           <tr>
+                                                                               <td><?php echo $row['chickin1']; ?></td>
+                                                                               <td><?php echo $row['chickin3']; ?></td>
+                                                                               <td><?php echo $row['chickin2']; ?></td>
+
+                                                                           </tr>
+                                                                           <?php
+                                                                       } 
+                                                                       ?>
+                                                                   </table>
+
+                                                               <?php } elseif (isset($_GET['rid'])) { ?>
+                                                                  <table class="table table-bordered" id="dynamic_field_chickin">
+                                                                    <b>#IN</b>
+
+                                                                    <?php
+
+                                                                    if($_GET['rid'] !=""){
+                                                                        $product = "SELECT * FROM tbchick1 WHERE tb1_id='".$_GET['rid']."'";
+                                                                        $result_product = mysqli_query($conn, $product);
+
+                                                                        if ($result_product->num_rows > 0) {
+                                                                            $i=1;
+                                                                            while($row_product = $result_product->fetch_assoc())
+                                                                            {
+
+                                                                                ?>     
+                                                                                <tr id="row<?php echo $i-1;?>">
+                                                                                 <td style="width:5%;"></td>
+                                                                                 <td style="width:20%;">
+                                                                                    <input type="text" name="chickin1[]" placeholder="Title" class="form-control" value="<?php echo $row_product['chickin1'];?>" />
+                                                                                </td>
+                                                                                <td style="width:30%;">
+                                                                                    <input type="text" name="chickin3[]" placeholder="Title" class="form-control" value="<?php echo $row_product['chickin3'];?>" />
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input type="number" name="chickin2[]" placeholder="Amount" class="form-control inst_amount_chickin" value="<?php echo $row_product['chickin2'];?>" />
+                                                                                </td>
+                                                                                <?php if($i==1){?> 
+                                                                                    <td><button type="button" name="add" id="chickin" class="btn btn-success"><i class=" fa fa-plus-square"></i></button></td> 
+                                                                                <?php } else {?> 
+                                                                                    <td> <button type="button" name="remove" id="<?php echo $i-1;?>" class="btn btn-danger btn_remove"><i class="fa fa-trash"></i></button></td>
+
+                                                                                <?php } ?>
+                                                                            </tr>
+
+
+                                                                            <?php $i++; } } } else { ?>
+                                                                                <tr>
+                                                                                 <td style="width:5%;"></td>
+                                                                                 <td style="width:20%;">
+                                                                                    <select class="form-control" type="text" name="chickin1[]" >
+                                                                                       <option value="">- SELECT -</option>
+                                                                                       <option value="CHICKEN">CHICKEN</option>
+                                                                                       <option value="AGRI">AGRI</option>
+                                                                                       <option value="GROCERY">GROCERY</option>
+                                                                                       <option value="COW">COW</option>
+                                                                                       <option value="PIG">PIG</option>
+                                                                                   </select>
+                                                                               </td>
+                                                                               <td style="width:30%;">
+                                                                                 <input type="text" name="chickin3[]" placeholder="Title" class="form-control" />
+                                                                             </td>
+                                                                             <td>
+                                                                                <input type="number" name="chickin2[]" placeholder="Amount" class="form-control inst_amount_chickin" />
+                                                                            </td>
+                                                                            <td><button type="button" name="add" id="chickin" class="btn btn-success"><i class=" fa fa-plus-square"></i></button></td>
+                                                                        </tr>
+                                                                    <?php }?>
+                                                                </table>    
+
+                                                            <?php } else { ?>
+                                                                <table class="table table-bordered" id="dynamic_field_chickin">
+                                                                    <b>#IN</b>
+                                                                    <tr>
+                                                                     <td style="width:5%;"></td>
+                                                                     <td style="width:20%;">
+                                                                        <select class="form-control" type="text" name="chickin1[]" >
+                                                                           <option value="">- SELECT -</option>
+                                                                           <option value="CHICKEN">CHICKEN</option>
+                                                                           <option value="AGRI">AGRI</option>
+                                                                           <option value="GROCERY">GROCERY</option>
+                                                                           <option value="COW">COW</option>
+                                                                           <option value="PIG">PIG</option>
+                                                                       </select>
+                                                                   </td>
+                                                                   <td style="width:30%;">
+                                                                     <input type="text" name="chickin3[]" placeholder="Title" class="form-control" />
+                                                                 </td>
+                                                                 <td>
+                                                                    <input type="number" name="chickin2[]" placeholder="Amount" class="form-control inst_amount_chickin" />
+                                                                </td>
+                                                                <td><button type="button" name="add" id="chickin" class="btn btn-success"><i class=" fa fa-plus-square"></i></button></td>
+                                                            </tr>
+                                                        </table>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                            <br><br>
+                                        </div>
+
+                                        <!-- PURCHASE OUT -->    
+                                        <div id="collapsechickOut" class="collapse">
+                                            <div class="container">
+                                                <div class="table-responsive">
+                                                   <?php if(isset($_GET['view'])) { ?>
+
+                                                     <table class="table table-striped" id="dynamic_field_chickout" style="width: 100%;text-align:center;">
+
+                                                         <thead>
+                                                             <tr>
+                                                                 <th>Purchase</th>
+                                                                 <th>Supplier</th>
+                                                                 <th>Amount Out</th>
+
+                                                             </tr>
+                                                         </thead>
+                                                         <?php
+                                                         $res = $MySQLiconn->query("SELECT * FROM tbchick2 JOIN tb1 ON tb1.id = tbchick2.tb1_id WHERE  tb1_id=".$_GET['view']);
+                                                         while($row=$res->fetch_array()){                                       
+                                                             ?>
+                                                             <tr>
+
+                                                                <td><?php echo $row['chickout1']; ?></td>
+                                                                <td><?php echo $row['chickout3']; ?></td>
+                                                                <td><?php echo $row['chickout2']; ?></td>
+
+                                                            </tr>
+                                                            <?php
+                                                        } 
+                                                        ?>
+                                                    </table>
+
+                                                <?php } elseif (isset($_GET['rid'])) { ?>
+                                                  <table class="table table-bordered" id="dynamic_field_chickout">
+                                                    <b>#OUT</b>
+
+                                                    <?php
+
+                                                    if($_GET['rid'] !=""){
+                                                        $product = "SELECT * FROM tbchick2 WHERE  tb1_id='".$_GET['rid']."'";
+                                                        $result_product = mysqli_query($conn, $product);
+
+                                                        if ($result_product->num_rows > 0) {
+                                                            $i=1;
+                                                            while($row_product = $result_product->fetch_assoc())
+                                                            {
+
+                                                                ?>     
+
+                                                                <tr id="row<?php echo $i-1;?>">
+                                                                    <td style="width:5%;"></td>
+                                                                    <td style="width:20%;">
+                                                                       <input type="text" name="chickout1[]" placeholder="Title" class="form-control" value="<?php echo $row_product['chickout1'];?>" />
+                                                                   </td>
+                                                                   <td style="width:30%;">
+                                                                    <input type="text" name="chickout3[]" placeholder="Title" class="form-control" value="<?php echo $row_product['chickout3'];?>" />
+                                                                </td>
+                                                                <td>
+                                                                    <input type="number" name="chickout2[]" placeholder="Amount" class="form-control inst_amount_chickout" value="<?php echo $row_product['chickout2'];?>" />
+                                                                </td>
+                                                                <?php if($i==1){?> 
+                                                                    <td><button type="button" name="add" id="chickout" class="btn btn-success"><i class=" fa fa-plus-square"></i></button></td> 
+                                                                <?php } else {?> 
+                                                                    <td> <button type="button" name="remove" id="<?php echo $i-1;?>" class="btn btn-danger btn_remove"><i class="fa fa-trash"></i></button></td>
+
+                                                                <?php } ?>
+                                                            </tr>
+
+
+                                                            <?php $i++; } } } else { ?>
+                                                                <tr>
+                                                                   <td style="width:5%;"></td>
+                                                                   <td style="width:20%;">
+                                                                    <select class="form-control" type="text" name="chickout1[]" >
+                                                                       <option value="">- SELECT -</option>
+                                                                       <option value="CHICKEN">CHICKEN</option>
+                                                                       <option value="AGRI">AGRI</option>
+                                                                       <option value="GROCERY">GROCERY</option>
+                                                                       <option value="COW">COW</option>
+                                                                       <option value="PIG">PIG</option>
+                                                                   </select>
+                                                               </td>
+                                                               <td style="width:30%;">
+                                                                <input type="text" name="chickout3[]" placeholder="Title" class="form-control" />
+                                                            </td>
+                                                            <td>
+                                                                <input type="number" name="chickout2[]" placeholder="Amount" class="form-control inst_amount_chickout" />
+                                                            </td>
+                                                            <td><button type="button" name="add" id="chickout" class="btn btn-success"><i class=" fa fa-plus-square"></i></button></td>
+                                                        </tr>
+                                                    <?php }?>
+                                                </table>   
+
+                                            <?php } else { ?>
+                                                <table class="table table-bordered" id="dynamic_field_chickout">
+                                                    <b>#OUT</b>
+                                                    <tr>
+                                                       <td style="width:5%;"></td>
+                                                       <td style="width:20%;">
+                                                        <select class="form-control" type="text" name="chickout1[]" >
+                                                           <option value="">- SELECT -</option>
+                                                           <option value="CHICKEN">CHICKEN</option>
+                                                           <option value="AGRI">AGRI</option>
+                                                           <option value="GROCERY">GROCERY</option>
+                                                           <option value="COW">COW</option>
+                                                           <option value="PIG">PIG</option>
+                                                       </select>
+                                                   </td>
+                                                   <td style="width:30%;">
+                                                    <input type="text" name="chickout3[]" placeholder="Title" class="form-control" />
+                                                </td>
+                                                <td>
+                                                    <input type="number" name="chickout2[]" placeholder="Amount" class="form-control inst_amount_chickout" />
+                                                </td>
+                                                <td><button type="button" name="add" id="chickout" class="btn btn-success"><i class=" fa fa-plus-square"></i></button></td>
+                                            </tr>
+                                        </table>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <br><br>
+                        </div>
+    

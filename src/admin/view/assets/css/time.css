@@ -1,0 +1,34 @@
+.clock {
+    position: absolute;
+    top: 30%;
+    left: 49%;
+    transform: translateX(-50%) translateY(-50%);
+    color: white;
+    font-size: 23px;
+    font-family: Orbitron;
+    letter-spacing: 4px;
+}
+@media only screen and (max-width: 600px) {
+  .clock {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translateX(-50%) translateY(-50%);
+    color: white;
+    font-size: 10px;
+    font-family: Orbitron;
+    letter-spacing: 4px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .clock {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translateX(-50%) translateY(-50%);
+    color: white;
+    font-size: 15px;
+    font-family: Orbitron;
+    letter-spacing: 4px;
+  }
+}

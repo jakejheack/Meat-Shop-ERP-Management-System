@@ -1,0 +1,32 @@
+#EXTINF:-1,DZBB 594KHZ SUPER RADYO
+http://stream.gmanews.tv/ioslive/livestream/chunklist.m3u8?checkedby:iptvcat.net
+#EXTINF:-1,SMNI
+https://api.new.livestream.com/accounts/19079954/events/7831871/live.m3u8
+#EXTINF:-1,BEAM TV 1
+https://d3cbe0gidjd4k2.cloudfront.net/channel_5/channel5/playlist.m3u8
+#EXTINF:-1,BEAM TV 2
+https://d3cbe0gidjd4k2.cloudfront.net/channel_7/smil:channel_7.smil/chunklist_w1635746920_b1000000_sleng.m3u8
+#EXTINF:-1,LIFE TV
+https://d3cbe0gidjd4k2.cloudfront.net/channel_6/channel6/playlist.m3u8
+#EXTINF:-1,CNN PH
+https://streaming.cnnphilippines.com/live/myStream/chunklist.m3u8
+#EXTINF:-1,Cinema One
+http://tigerfights.xyz:80/play/C_JPeXfZ7q9q9-d6oVVwRpvAOF4dL-sljR9smjLmUE8
+#EXTINF:-1,Filipino TV
+http://tigerfights.xyz:80/play/C_JPeXfZ7q9q9-d6oVVwRmHVcCp32UgzEIHvFP0N3as
+#EXTINF:-1,GMA News TV
+http://tigerfights.xyz:80/play/C_JPeXfZ7q9q9-d6oVVwRn2d4nbha0fbjN6YKG-hvCQ
+#EXTINF:-1,GMA Pinoy TV
+http://tigerfights.xyz:80/play/C_JPeXfZ7q9q9-d6oVVwRg34SZD1okkDU-kdDP2Zv6Y
+#EXTINF:-1,GMA 7
+http://tigerfights.xyz:80/play/C_JPeXfZ7q9q9-d6oVVwRrB1CPn3xjbEKeawM9zsiq8
+#EXTINF:-1,Kapatid TV5
+http://tigerfights.xyz:80/play/C_JPeXfZ7q9q9-d6oVVwRqUe8DJt-RbGEyE1EsP2KDM
+#EXTINF:-1,TFC
+http://tigerfights.xyz:80/play/C_JPeXfZ7q9q9-d6oVVwRkkobI1N3Fhmg2kFZ2HlSzA
+#EXTINF:-1,Cinemo
+http://tigerfights.xyz:80/play/C_JPeXfZ7q9q9-d6oVVwRjZsNJkqFAOv4ZUVxqyizUo
+#EXTINF:-1,Filipino TV
+http://tigerfights.xyz:80/play/C_JPeXfZ7q9q9-d6oVVwRmHVcCp32UgzEIHvFP0N3as
+#EXTINF:-1,TV SHOP PHILIPPINES
+http://tigerfights.xyz:80/play/C_JPeXfZ7q9q9-d6oVVwRlYAJdbMsKxu07gWbh7Cd7I
